@@ -1,0 +1,54 @@
+   
+    
+function addDataToMap(projectPts, map) {
+    var projectPtsLayer = L.geoJson(projectPts, {
+        //markers
+        //pointToLayer: function (feature, latlng) {
+        //    return new L.CircleMarker(latlng, {
+        //        radius:10, 
+        //        fillOpacity: 0.0, 
+        //        weight: 0
+        //    });
+        //},     
+        //popups
+        
+        onEachFeature: function(feature, layer) {
+            var popupText = "Project City: " + feature.properties.MCD_NAME
+                + "<br>Total Projects Funded: " + feature.properties.TTLFUNDED
+                + "<br>Total Projects Unfunded: " + feature.properties.TTLUNFUND;
+            layer.bindPopup(popupText);}
+       });
+projectPtsLayer.addTo(map);
+}
+
+
+
+$.getJSON("data/STIP_SRTS_MCDPTS.geojson.json", function(projectPts) {addDataToMap(projectPts, map);
+});
+
+
+
+
+
+
+
+
+$.getJSON("data/STIP_SRTS_MCDPTS.geojson.json", function(projectPtsLayer) {
+    projectPts = L.geoJson(projectPts, {
+        pointToLayer: function (feature, latlng) {
+            return new L.CircleMarker(latlng, {
+                radius:10, 
+                fillOpacity: 0.0, 
+                weight: 0
+                });
+            };
+        }),
+        
+        onEachFeature: function(feature, layer) {
+            var popupText = "Project City: " + feature.properties.MCD_NAME
+                + "<br>Total Projects Funded: " + feature.properties.TTLFUNDED
+                + "<br>Total Projects Unfunded: " + feature.properties.TTLUNFUND;
+            layer.bindPopup(popupText);
+            }
+    });
+       

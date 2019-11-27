@@ -1,0 +1,234 @@
+
+//Import GeoJSON data
+function getPopulationData(map){
+  X=1
+  $.getJSON("data/TRANSPDISTRICTS.geojson",function(districtProjects){
+
+  function getColor(d) {
+    return d > 89719 ? '#2C4257' : // high end of break 382492
+           d > 39266 ? '#436F74' :
+           d > 18655 ? '#63A68D' :
+           d > 6670 ? '#D5D786' :
+           d <= 6669 ? '#F1EABC' :
+                      '#fcf8e8';
+  }
+  function style(feature) {
+     console.log (feature);
+    return {
+        fillColor: getColor(feature.properties.POP2000),
+        weight: .5,
+        opacity: 1,
+        color: 'white',
+        fillOpacity: 0.7,
+        zIndex: 2
+    };
+  }
+
+populationCitiesLayer = L.geoJson(districtProjects, {
+  style: style,
+}).addTo(map).bringToBack();
+  });
+
+  updateLegend();
+};
+
+function getSRTSFundedData(map){
+  X=2
+  $.getJSON("data/TRANSPDISTRICTS.geojson",function(districtProjects){
+
+  function getColor(d) {
+    return d > 7 ? '#000000' :  // high end of break 10
+           d > 5 ? '#404040' :
+           d > 3 ? '#808080' :
+           d > 1 ? '#BFBFBF' :
+           d <= 1 ? '#FFFFFF' :
+                      '#fcf8e8';
+  }
+  function style(feature) {
+    return {
+        fillColor: getColor(feature.properties.SRTSFUNDED),
+        weight: .5,
+        opacity: 1,
+        color: 'white',
+        fillOpacity: 0.6,
+        zIndex: 2
+    };
+  }
+
+SRTSFundedCitiesLayer = L.geoJson(districtProjects, {
+  style: style,
+}).addTo(map).bringToBack();
+  });
+
+  updateLegend();
+};
+
+
+function getSRTSUnfundedData(map){
+  X=3
+  $.getJSON("data/TRANSPDISTRICTS.geojson",function(districtProjects){
+
+  function getColor(d) {
+    return d > 4 ? '#000000' :  // high end of break 6
+           d > 2 ? '#404040' :
+           d > 1 ? '#808080' :
+           d > 0 ? '#BFBFBF' :
+           d = 0 ? '#FFFFFF' :
+                      '#fcf8e8';
+  }
+  function style(feature) {
+    return {
+        fillColor: getColor(feature.properties.SRTSUNFUND),
+        weight: .5,
+        opacity: 1,
+        color: 'white',
+        fillOpacity: 0.6,
+        zIndex: 2
+    };
+  }
+
+ SRTSUnfundedCitiesLayer = L.geoJson(districtProjects, {
+  style: style,
+}).addTo(map).bringToBack();
+  });
+
+  updateLegend();
+};
+
+
+function getSTIPFundedData(map){
+  X=4
+  $.getJSON("data/TRANSPDISTRICTS.geojson",function(districtProjects){
+
+  function getColor(d) {
+    return d > 14 ? '#000000' :  // high end of break 21
+           d > 9  ? '#404040' :
+           d > 5  ? '#808080' :
+           d > 2  ? '#BFBFBF' :
+           d <= 2 ? '#FFFFFF' :
+                      '#fcf8e8';
+  }
+  function style(feature) {
+    return {
+        fillColor: getColor(feature.properties.STIPFUNDED),
+        weight: .5,
+        opacity: 1,
+        color: 'white',
+        fillOpacity: 0.6,
+        zIndex: 2
+    };
+  }
+
+ STIPFundedCitiesLayer = L.geoJson(districtProjects, {
+  style: style,
+}).addTo(map).bringToBack();
+  });
+
+  updateLegend();
+};
+
+
+function getSTIPUnfundedData(map){
+  X=5
+  $.getJSON("data/TRANSPDISTRICTS.geojson",function(districtProjects){
+
+  function getColor(d) {
+    return d > 5 ? '#000000' :  // high end of break 7
+           d > 3 ? '#404040' :
+           d > 1 ? '#808080' :
+           d > 0 ? '#BFBFBF' :
+           d = 0 ? '#FFFFFF' :
+                      '#fcf8e8';
+  }
+  function style(feature) {
+    return {
+        fillColor: getColor(feature.properties.STIPUNFUNDED),
+        weight: .5,
+        opacity: 1,
+        color: 'white',
+        fillOpacity: 0.6,
+        zIndex: 2
+    };
+  }
+
+ STIPUnfundedCitiesLayer = L.geoJson(districtProjects, {
+  style: style,
+}).addTo(map).bringToBack();
+  });
+
+  updateLegend();
+};
+
+
+function getTotalFundedData(map){
+  X=6
+  $.getJSON("data/TRANSPDISTRICTS.geojson",function(districtProjects){
+
+  function getColor(d) {
+    return d > 15 ? '#000000' : // high end of break 29
+           d > 9  ? '#404040' :
+           d > 5  ? '#808080' :
+           d > 2  ? '#BFBFBF' :
+           d <= 2 ? '#FFFFFF' :
+                      '#fcf8e8';
+  }
+  function style(feature) {
+    return {
+        fillColor: getColor(feature.properties.TTLFUNDED),
+        weight: .5,
+        opacity: 1,
+        color: 'white',
+        fillOpacity: 0.6,
+        zIndex: 2
+    };
+  }
+
+ TTLFundedCitiesLayer = L.geoJson(districtProjects, {
+    style: style,
+    }).addTo(map).bringToBack();
+  });
+
+  updateLegend();
+};
+
+
+
+function getTotalUnfunded(map){
+  X=7
+  $.getJSON("data/TRANSPDISTRICTS.geojson",function(districtProjects){
+
+  function getColor(d) {
+    return d > 8 ? '#000000' : // high end of break 11
+           d > 5 ? '#404040' :
+           d > 3 ? '#808080' :
+           d > 1 ? '#BFBFBF' :
+           d <= 1 ? '#FFFFFF' :
+                      '#fcf8e8';
+  }
+  function style(feature) {
+    return {
+        fillColor: getColor(feature.properties.TTLUNFUND),
+        weight: .5,
+        opacity: 1,
+        color: 'white',
+        fillOpacity: 0.6,
+        zIndex: 2
+    };
+  }
+
+ TTLUnfundedCitiesLayer = L.geoJson(districtProjects, {
+  style: style,
+}).addTo(map).bringToBack();
+  });
+
+//createPopups(map, districtProjects);
+//  });
+      
+  updateLegend();
+};
+
+
+
+//GET DATA FOR DISTRICTS
+
+$(document).ready(createMap);

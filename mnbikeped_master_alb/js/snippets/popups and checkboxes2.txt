@@ -1,0 +1,33 @@
+ 2
+down vote
+accepted
+	
+
+In a Leaflet popup you can just write plain HTML with anything you want. So instead of writing
+
+layer.bindPopup(feature.properties.name);
+
+you could simply write
+
+layer.bindPopup('<h1>'+feature.properties.name+'</h1><p>Language: '+feature.properties.language+'</p>');
+
+If you would like to display automatically all properties as a table inside the popup window, you could build up your HTML dynamically, something like:
+
+var popupContent = '<table>';
+for (var p in feature.properties) {
+    popupContent += '<tr><td>' + p + '</td><td>'+ feature.properties[p] + '</td></tr>';
+}
+popupContent += '</table>';
+layer.bindPopup(popupContent);
+
+
+
+
+
+
+
+
+
+
+            function onEachFeature(feature, layer) {
+                layer.bindPopup(feature.properties.popupContent);

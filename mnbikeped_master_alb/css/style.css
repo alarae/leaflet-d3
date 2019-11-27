@@ -1,0 +1,344 @@
+/* 575 final project style.css */
+
+body {
+	width: 90%;
+	height: 90%;
+	margin: 20px 20px;
+	font-family: 'Roboto', sans-serif;
+	/* text unselectable */
+	-webkit-user-select: none; /* Chrome/Safari */  
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+}
+
+
+header {
+	width: 100%;
+    color: #404040;
+    font-size: 3em;
+    font-family: 'Roboto';
+	color: #000;
+	font-size: 33pt;
+	text-align: left;
+	padding-bottom: 1%;
+}
+
+#mcealogo {
+	padding-left: 2%;
+	max-width: 20%;
+    margin-left: 20%;
+    margin-right: 20%;
+    position: right;
+}
+
+#subheader {
+	width: 100%;
+	font-family: 'Roboto';
+	color: #404040;
+	font-size: 20pt;
+	text-align: left;
+	padding-bottom: 4%;
+}
+
+#subheader2 {
+	width: 100%;
+	font-family: 'Roboto';
+	color: #014636;
+	font-size: 20pt;
+	text-align: center;
+    padding-bottom: 4%;
+}
+
+#subheader3 {
+	width: 100%;
+	font-family: 'Roboto';
+	color: #014636;
+	font-size: 13pt;
+	text-align: center;
+    padding-right: 5%;
+    padding-bottom: 5%;
+}
+
+#context {
+	font-family: 'Roboto';
+	width: 100%;
+	padding-bottom: 1%;
+	margin: auto;
+	line-height: 150%;
+}
+
+
+/*Map*/
+#map {
+	height: 770px;
+	width: 75%;
+	border-radius: 10px;
+    display: inline-block;
+}
+
+
+#legend {
+	height: 600px;
+	width: 25%;
+	display: inline-block;
+	border-radius: 10px;
+	float: left;
+    align-content: center;
+}
+
+#footer {
+ 	height: 30px;
+ 	width: 100%;
+ 	font-family: 'Roboto';
+ 	color: #404040;
+ 	margin: 15px;
+ 	font-size: 10pt;
+    padding-bottom: 1%;
+ }
+
+/*style dropdown */
+
+select {
+	background-color: white;
+	border: 1;
+}
+
+#blank {
+	font-weight: bold;
+	font-family: 'Roboto';
+	color: white;
+}
+
+#populationCities {
+	font-family: 'Roboto';
+}
+
+#SRTSFundedCities {
+	font-family: 'Roboto';
+}
+#SRTSUnfundedCities {
+	font-family: 'Roboto';
+}
+
+#STIPFundedCities {
+	font-family: 'Roboto';
+}
+#STIPUnfundedCities {
+	font-family: 'Roboto';
+}
+#TTLFundedCities {
+	font-family: 'Roboto';
+}
+#TTLUnfundedCities {
+	font-family: 'Roboto';
+}
+
+.container {
+    fill: none;
+    position: absolute;
+    left: auto;
+    bottom: 0px;
+    align-content: center;
+}
+
+.break {
+    height: 50px ;
+    display: block;
+    padding: 0px;
+    margin-top:5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+.sq {
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    margin-left: 25%;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: solid #000000 0.5px;
+    border-radius: 5px;
+
+}
+
+.label {
+    height: 50px;
+    display: inline;
+    float: right;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    position: absolute;
+    text-align: center;
+    line-height: 20px;
+}
+
+
+#full-screen-background-image {
+    z-index: -999;
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.2;
+}
+
+#break0 {
+	padding: 3px;
+	text-align: center;
+}
+
+#sq1 {
+
+    background-color: #F1EABC;
+}
+
+#sq2 {
+
+    background-color: #D5D786;
+}
+
+#sq3 {
+
+    background-color: #63A68D;
+}
+
+#sq4 {
+
+    background-color: #436F74;
+}
+
+#sq5 {
+
+    background-color: #2C4257;
+}
+
+.legendLabel {
+	font-family: 'Roboto';
+	margin: 0;
+}
+
+a:link {
+    color: #014636; /*dark sea green*/
+}
+
+/* visited link */
+a:visited {
+    color: #016c59; /*sea green*/
+}
+
+/* mouse over link */
+a:hover {
+    color: #02818a; /*foam green*/
+}
+
+
+.leaflet-verticalcenter {
+    position: absolute;
+    top: 50%; /* possible because the placeholder's parent is the map */
+    transform: translateY(-50%); /* using the CSS3 Transform technique */
+    padding-top: 10px;
+}
+
+.leaflet-verticalcenter .leaflet-control {
+    margin-bottom: 10px;
+}
+
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    position: 
+}
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+
+.projectButton {
+	-moz-box-shadow: 0px 10px 14px -7px #707070;
+	-webkit-box-shadow: 0px 10px 14px -7px #707070;
+	box-shadow: 0px 10px 14px -7px #707070;
+	background-color:#FFF;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:'Sansita';
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 14px;
+	text-decoration:none;
+}
+.projectButton:hover {
+	background-color:#909090;
+}
+.projectButton:active {
+	position:relative;
+	top:1px;
+    background-color:#303030;
+}
+
+.fundedButton {
+	-moz-box-shadow: 0px 10px 14px -7px #707070;
+	-webkit-box-shadow: 0px 10px 14px -7px #707070;
+	box-shadow: 0px 10px 14px -7px #707070;
+	background-color:#FFF;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Sansita;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 14px;
+	text-decoration:none;
+}
+.fundedButton:hover {
+	background-color:#909090;
+}
+.fundedButton:active {
+	position:relative;
+	top:1px;
+    background-color:#303030;
+}
+.unfundedButton {
+	-moz-box-shadow: 0px 10px 14px -7px #707070;
+	-webkit-box-shadow: 0px 10px 14px -7px #707070;
+	box-shadow: 0px 10px 14px -7px #707070;
+	background-color:#FFF;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:'Sansita';
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 14px;
+	text-decoration:none;
+}
+.unfundedButton:hover {
+	background-color:#909090;
+}
+.unfundedButton:active {
+	position:relative;
+	top:1px;
+    background-color:#303030;
+}

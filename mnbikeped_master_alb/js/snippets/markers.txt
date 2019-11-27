@@ -1,0 +1,126 @@
+$.getJSON("data/STIP_SRTS_CITIES_Funded.geojson.json", function(data) { addDataToMap(data, map); });    
+
+
+//get city project point data
+function getcityData(map){
+    
+    
+//loading the data for cities with projects
+var citiesFunded = $.ajax(
+    "data/STIP_SRTS_CITIES_Funded.geojson.json",
+     {
+          dataType: "json",
+          success: function(response){
+              
+              //popups are not working
+              //L.geoJson(data, {onEachFeature: onEachFeature});
+             
+              var geojsonMarkerOptions = {
+                radius: 4,
+                fillColor: "#fff",
+                fillOpacity: 1,
+                color: "#009807",
+                weight: 2, 
+                opacity: 0.5
+              };
+              
+              
+  //create a Leaflet GeoJSON layer and add it to the map
+              L.geoJson(response,{
+                pointToLayer: function(feature, latlng) {
+                
+                //popups not working
+                //function onEachFeature(feature, layer) {
+                    //layer.bindPopup(feature.properties.popupContent);
+                        //};
+                return L.circleMarker(latlng, geojsonMarkerOptions);
+            
+                }
+              }).addTo(map);
+            }
+    });
+
+    
+
+    
+//loading data for cities with unfunded projects    
+var citiesUnfunded = $.ajax(
+    "data/STIP_SRTS_CITIES_Unfunded.geojson.json",
+     {
+          dataType: "json",
+          success: function(response){
+                            
+                //popups are not working
+                //L.geoJson(data, {onEachFeature: onEachFeature});
+              
+              var geojsonMarkerOptions = {
+                radius: 4,
+                fillColor: "#fff",
+                fillOpacity: 1,
+                color: "#FF4524",
+                weight: 2, 
+                opacity: 0.5
+              };
+
+              
+  //create a Leaflet GeoJSON layer and add it to the map
+              L.geoJson(response,{
+                pointToLayer: function(feature, latlng) {
+  
+                //popups not working
+                //function onEachFeature(feature, layer) {
+                    //layer.bindPopup(feature.properties.popupContent);
+                        //};
+                return L.circleMarker(latlng, geojsonMarkerOptions);
+                }
+                  
+              }).addTo(map);
+            }
+    }); 
+
+};
+//end get city data
+
+
+
+
+
+    var geojsonMarkerOptions = {
+                radius: 4,
+                fillColor: "#fff",
+                fillOpacity: 1,
+                color: "#FF4524",
+                weight: 2, 
+                opacity: 0.5
+    };
+    L.geoJson(citiesUnfunded,{
+            pointToLayer: function(feature, latlng) {
+                return L.circleMarker(latlng, geojsonMarkerOptions);
+            }
+    }).addTo(map);
+
+
+
+function updateCityData(popupsinfo){
+        //this creates a popup to occur on the min circle for the specific place and time
+        citiesFunded.eachLayer(function(layer){
+            var props = layer.feature.properties;
+            
+            var popupContent = "<b>" +
+                " District</b><br>" + "<i>" + feature.properties.DISTRICT + "</i>";
+                //binds the popup to a location 
+            layer.bindPopup(popupContent);
+        });
+        //this creates a popup to occur on the max circle for the specific place and time
+        citiesUnfunded.eachLayer(function(layer){
+            var props = layer.feature.properties;
+            
+            var popupContent = "<b>" +
+                " District</b><br>" + "<i> " + feature.properties.DISTRICT + "</i>";
+                // binds the popup to a location 
+            layer.bindPopup(popupContent);
+        });
+    
+    createFundButton(citiesFundedLayer, citiesUnfundedLayer);
+    
+    }; //end add popups

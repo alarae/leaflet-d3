@@ -1,0 +1,35 @@
+var citiesFunded = new L.LayerJSON('data/STIP_SRTS_CITIES_Unfunded.geojson.json');
+map.addLayer(citiesFunded);
+var citiesUnfunded = new L.LayerJSON('data/STIP_SRTS_CITIES_Funded.geojson.json');
+map.addLayer(citiesUnfunded);
+
+    
+var overlays = {
+    "Unfunded Cities": citiesUnfunded,
+    "Funded Cities": citiesFunded
+    };
+
+var cityButton = L.easyButton({
+    states: [{
+      stateName: 'add-markers',
+      icon: 'fa-user-plus',
+      title: 'Add Project Cities',
+      onClick: function(control) {
+        map.addLayer(citiesUnfunded);
+        map.addLayer(citiesFunded);
+        control.state('remove-markers');
+      }
+    }, {
+      icon: 'fa-undo',
+      stateName: 'remove-markers',
+      onClick: function(control) {
+        map.removeLayer(citiesUnfunded);
+        map.removeLayer(citiesFunded);
+        control.state('add-markers');
+      },
+      title: 'Remove Project Cities'
+    }]
+ });
+
+cityButton.addTo(map);
+

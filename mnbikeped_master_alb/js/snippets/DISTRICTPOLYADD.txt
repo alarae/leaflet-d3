@@ -1,0 +1,13 @@
+districtpolyjson = L.geoJson("TRANSPDISTRICTS.geojson.json", {
+     style: style,
+     onEachFeature: function(feature, layer){
+       layer.on({
+         mouseover: highlightFeature,
+         mouseout: resetHighlight,
+     })
+       layer.bindPopup('<b>DISTRICT: </b>' + feature.properties.DISTRICT + '<br>' +
+       "<b> TTL FUNDED: </b> " + feature.properties.TTLFUNDED + '<br>' +
+       "<b> TTL UNFUNDED: </b> " + feature.properties.TTLUNFUND + '<br>' +
+       )
+     }
+   }).addTo(map);
